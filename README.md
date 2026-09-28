@@ -1,5 +1,8 @@
 # 🧩 Редактор параметров (тестовое задание)
 
+
+[![Просмотры README](https://vbr.nathanchung.dev/badge?page_id=Richbanker.param-editor&text=README_Views)](https://github.com/Richbanker/param-editor)
+
 Реализация компонента `ParamEditor` на **React + TypeScript** по техническому заданию. Компонент позволяет редактировать структуру `Model`, отображая список параметров (`Param[]`) и значения из `model.paramValues`.
 
 ---
