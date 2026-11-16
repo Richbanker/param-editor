@@ -64,10 +64,11 @@ export class ParamEditor extends React.Component<Props, State> {
       <div>
         {params.map((param) => (
           <div key={param.id} style={{ marginBottom: '10px' }}>
-            <label style={{ display: 'inline-block', width: '150px', fontWeight: 'bold' }}>
+            <label htmlFor={'param-' + param.id} style={{ display: 'inline-block', width: '150px', fontWeight: 'bold' }}>
               {param.name}
             </label>
             <input
+              id={'param-' + param.id}
               type="text"
               value={paramValuesMap[param.id] ?? ''}
               onChange={(e) => this.handleChange(param.id, e.target.value)}
