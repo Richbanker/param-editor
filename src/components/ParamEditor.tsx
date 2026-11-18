@@ -35,6 +35,23 @@ export class ParamEditor extends React.Component<Props, State> {
     this.state = { paramValuesMap };
   }
 
+  componentDidUpdate(prevProps: Props) {
+    const previousValues = prevProps.model.paramValues;
+    const nextValues = this.props.model.paramValues;
+    if (
+      previousValues.length !== nextValues.length ||
+      previousValues.some((entry, index) =>
+        entry.paramId !== nextValues[index].paramId || entry.value !== nextValues[index].value
+      )
+    ) {
+      const paramValuesMap: Record<number, string> = {};
+      for (const { paramId, value } of this.props.model.paramValues) {
+        paramValuesMap[paramId] = value;
+      }
+      this.setState({ paramValuesMap });
+    }
+  }
+
   handleChange = (paramId: number, newValue: string) => {
     this.setState((prevState) => ({
       paramValuesMap: {
